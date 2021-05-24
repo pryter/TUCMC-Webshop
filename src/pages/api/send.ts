@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {request} from "../../util/request";
-import {transaction} from "../../util/transaction";
+import {pushCMD, transaction} from "../../util/transaction";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
@@ -14,7 +14,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case "buy": {
           const output = await transaction(req, res, req.body.id)
           res.json(output)
-        }
+        }break
+        case "pushCMD": {
+          const output = await pushCMD(req, res)
+          res.json(output)
+        }break
       }
       break
     default:

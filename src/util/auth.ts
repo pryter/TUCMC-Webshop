@@ -3,10 +3,15 @@ import {initialiseDB} from "./firebase-admin";
 import {use} from "ast-types";
 import bcrypt from "bcryptjs"
 
-function getId(playername) {
-  return fetch(`https://api.mojang.com/users/profiles/minecraft/${playername}`)
-    .then(data => data.json())
-    .then(player => player.id);
+async function getId(playername) {
+  try {
+    const res = await fetch(`https://api.mojang.com/users/profiles/minecraft/${playername}`)
+    if (!res.status) return ""
+    const json = await res.json()
+    return json.id
+  }catch (e) {
+    return ""
+  }
 }
 
 export const login = async (req, res) => {

@@ -8,7 +8,7 @@ const App = ({Component, pageProps}: AppProps) => {
   return (
     <div className="antialiased">
       <Head>
-        <title>TUCMC Club Registeration System</title>
+        <title>TUCMC Official Minecraft Shop</title>
       </Head>
       <Component {...pageProps} />
     </div>)

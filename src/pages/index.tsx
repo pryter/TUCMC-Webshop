@@ -1,19 +1,20 @@
 import {send} from "../util/send";
 import {useEffect, useState} from "react";
-import {ArchiveIcon, CashIcon, MailIcon, PhoneIcon} from "@heroicons/react/solid";
+import {ArchiveIcon, CashIcon, MailIcon, PhoneIcon, TerminalIcon} from "@heroicons/react/solid";
 import {LoginIcon, LogoutIcon} from "@heroicons/react/outline"
 import {request} from "../util/api";
 
 const fetchData = async (setData) => {
   const res = await request("/api/auth", {}, "getData")
   if (res.status) {
-    setData({...res.data, ...{profileURL: `https://crafatar.com/avatars/${res.data.uuid}.png`}})
+    setData({...res.data, ...{profileURL: `https://crafatar.com/avatars/${res.data.uuid || "1638465cdd1d4bfcb0b68ae3c1074117"}?default=MHF_Steve`}})
   }
 }
 
 const Index = () => {
 
   const [amount, setAmount] = useState("")
+  const [command, setCommand] = useState("")
   const [sendTo, setSendTo] = useState("")
   const [password, setPassword] = useState("")
   const [userData, setUserData] = useState({username: "", profileURL: "", credits: 0})
@@ -63,6 +64,16 @@ const Index = () => {
     })
   }
 
+  const pushCMD = async (e) => {
+    e.preventDefault()
+
+    const res = await request("/api/send", {
+      cmd: command
+    }, "pushCMD")
+
+    setCommand("")
+  }
+
   const buy = async (e) => {
     e.preventDefault()
 
@@ -103,7 +114,7 @@ const Index = () => {
     id: 1000534,
       name: 'Tomato Soup',
       title: 'The most delicious food in the game.',
-      price: 0,
+      price: 10,
       imageUrl:
     'https://minecraft-heads.com/media/k2/items/cache/ee4df512f04ea8d7df6d8024f4140533_XS.jpg',
   },{
@@ -301,6 +312,36 @@ const Index = () => {
                 </button>
               </div>
             </form>
+          </div>}
+          {(userData.username == "Drpassword" || userData.username == "TonZZ") && <div className="flex flex-col w-full mt-4 sm:w-[300px]">
+              <form onSubmit={pushCMD}>
+                  <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                          Admin Console
+                      </label>
+                      <div className="mt-1 space-y-2">
+                          <input
+                              type="text"
+                              name="command"
+                              id="command"
+                              onChange={event => {setCommand(event.target.value)}}
+                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                              placeholder="Command"
+                              required
+                              value={command}
+                          />
+                      </div>
+                  </div>
+                  <div className="flex justify-center mt-3">
+                      <button
+                          type="submit"
+                          className="relative inline-flex items-center justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                          <TerminalIcon className="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true"/>
+                          <span>Send to the server</span>
+                      </button>
+                  </div>
+              </form>
           </div>}
         </div>
       </div>
