@@ -204,7 +204,7 @@ const Index = () => {
       </div>}
       <h1 className="text-center my-10 text-2xl font-semibold">TUCMC Official Minecraft Shop</h1>
       <div className="flex flex-col-reverse md:flex-row md:space-x-6 justify-between items-start max-w-7xl mx-auto ">
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 mx-auto">
+        <ul className="grid grid-cols-1 gap-6 mb-10 sm:grid-cols-1 lg:grid-cols-2 mx-auto">
           {items.map((person, index) => (
             <li key={index} className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
               <div className="w-full flex items-center justify-between p-6">
