@@ -8,6 +8,8 @@ import {initialiseDB} from "./firebase-admin";
 export const transaction = async (req, res, id: number) => {
 
   try {
+    if (parseInt(req.body.amount) < 1) return {status: false, data: {}}
+
     const cookies = new Cookies(req, res, {keys: [process.env.COOKIE_KEY]})
     const data = JSON.parse(cookies.get("userData", {signed: true}))
 

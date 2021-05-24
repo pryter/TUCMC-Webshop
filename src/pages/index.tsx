@@ -76,6 +76,8 @@ const Index = () => {
   const buy = async (e) => {
     e.preventDefault()
 
+    if (parseInt(amount) < 1) return
+
     const res = await request("/api/send", {
       id: buying.id,
       sendto: sendTo,
