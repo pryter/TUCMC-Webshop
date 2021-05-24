@@ -106,7 +106,21 @@ const Index = () => {
       price: 0,
       imageUrl:
     'https://minecraft-heads.com/media/k2/items/cache/ee4df512f04ea8d7df6d8024f4140533_XS.jpg',
-  }
+  },{
+      id: 1000535,
+      name: 'Vanish Command',
+      title: 'Completely invisible from everyone.',
+      price: 250,
+      imageUrl:
+        'https://minecraft-heads.com/media/k2/items/cache/f738e7b91281aee7558fba10e0a9d741_XS.jpg',
+    },{
+      id: 1000536,
+      name: 'Grappling Hook',
+      title: 'Wooohooo',
+      price: 120,
+      imageUrl:
+        '/assets/Lead_JE2_BE2.jpg',
+    }
   ]
 
   return (

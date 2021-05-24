@@ -13,9 +13,9 @@ export const transaction = async (req, res, id: number) => {
 
     const user = await initialiseDB().collection("users").where("username","==", data.username).get()
 
-    if (user.docs[0].get("credits") < itemPrice[req.body.id]) {throw "inssuf"}
+    if (user.docs[0].get("credits") < (itemPrice[req.body.id] * parseInt(req.body.amount))) {throw "inssuf"}
 
-    await user.docs[0].ref.update({credits: user.docs[0].get("credits") - itemPrice[req.body.id]})
+    await user.docs[0].ref.update({credits: user.docs[0].get("credits") - (itemPrice[req.body.id] * parseInt(req.body.amount))})
 
     let form = new FormData();
 

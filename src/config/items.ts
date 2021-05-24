@@ -3,7 +3,9 @@ export const itemPrice = {
   1000531: 10,
   1000532: 25,
   1000533: 35,
-  1000534: 0
+  1000534: 0,
+  1000535: 250,
+  1000536: 120,
 }
 
 export const itemAction = (id: number, username: string, amount: string, sendTo: string) => {
@@ -19,5 +21,9 @@ export const itemAction = (id: number, username: string, amount: string, sendTo:
       return `sf give ${recipient} URANIUM ${amount}`
     case 1000534:
       return `sf give ${recipient} TOMATO_SOUP ${amount}`
+    case 1000535:
+      return `vanish ${recipient}`
+    case 1000536:
+      return `sf give ${recipient} GRAPPLING_HOOK ${amount}`
   }
 }

@@ -19,7 +19,7 @@ export const login = async (req, res) => {
   const user = await initialiseDB().collection("users").where("username","==", req.body.username).get()
 
   if (user.empty) {
-    await initialiseDB().collection("users").add({username: req.body.username, credits: 0, password: bcrypt.hashSync(req.body.password, 8)})
+    await initialiseDB().collection("users").add({username: req.body.username, credits: 500, password: bcrypt.hashSync(req.body.password, 8)})
   }else{
     if (!bcrypt.compareSync(req.body.password, user.docs[0].get("password"))) {return {status: false, data: {}}}
   }
