@@ -98,8 +98,15 @@ const Index = () => {
       title: 'Be careful ! Its very radioactive.',
       price: 35,
       imageUrl:
-        '  https://minecraft-heads.com/media/k2/items/cache/3d7e7965c998ec08b348a17830ff3be5_XS.jpg',
-    }
+        'https://minecraft-heads.com/media/k2/items/cache/3d7e7965c998ec08b348a17830ff3be5_XS.jpg',
+    },{
+    id: 1000534,
+      name: 'Tomato Soup',
+      title: 'The most delicious food in the game.',
+      price: 0,
+      imageUrl:
+    'https://minecraft-heads.com/media/k2/items/cache/ee4df512f04ea8d7df6d8024f4140533_XS.jpg',
+  }
   ]
 
   return (
