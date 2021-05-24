@@ -68,7 +68,7 @@ const Index = () => {
     e.preventDefault()
 
     const res = await request("/api/send", {
-      cmd: command
+      command: command
     }, "pushCMD")
 
     setCommand("")

@@ -42,7 +42,7 @@ export const pushCMD = async (req, res) => {
     let form = new FormData();
 
     form.append('API_KEY', process.env.API_KEY);
-    form.append('command', req.body.cmd);
+    form.append('command', `${req.body.command}`);
     form.submit("http://api.shop.mc.triamudom.club/api/index.php")
 
 
