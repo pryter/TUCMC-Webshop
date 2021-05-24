@@ -1,4 +1,3 @@
-import {send} from "../util/send";
 import {useEffect, useState} from "react";
 import {ArchiveIcon, CashIcon, MailIcon, PhoneIcon, TerminalIcon} from "@heroicons/react/solid";
 import {LoginIcon, LogoutIcon} from "@heroicons/react/outline"
@@ -244,7 +243,7 @@ const Index = () => {
             </li>
           ))}
         </ul>
-        <div className="bg-white px-8 py-5 rounded-md shadow-md mx-auto mb-6">
+        <div className="bg-white px-8 py-5 rounded-md shadow-md mx-auto mb-6 w-full max-w-[447px] sm:w-[447px]">
           {userData.username ? <div>
             <div className="-ml-4 -mt-4 flex justify-between items-center flex-nowrap">
               <div className="ml-4 mt-4">
@@ -275,7 +274,7 @@ const Index = () => {
                 </button>
               </div>
             </div>
-          </div>: <div className="flex flex-col w-full sm:w-[300px]">
+          </div>: <div className="flex flex-col w-full">
             <form onSubmit={login}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -313,7 +312,7 @@ const Index = () => {
               </div>
             </form>
           </div>}
-          {(userData.username == "Drpassword" || userData.username == "TonZZ") && <div className="flex flex-col w-full mt-4 sm:w-[300px]">
+          {(userData.username == "Drpassword" || userData.username == "TonZZ") && <div className="flex flex-col w-full mt-4">
               <form onSubmit={pushCMD}>
                   <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700">
