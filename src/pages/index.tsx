@@ -257,7 +257,7 @@ const Index = () => {
                       alt=""
                     />
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex-shrink-0">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{userData.username}</h3>
                     <p className="text-sm text-gray-500">
                       <a href="#">Credits: {userData.credits}</a>
