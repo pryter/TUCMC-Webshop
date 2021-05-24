@@ -135,7 +135,7 @@ const Index = () => {
 
   return (
     <div className="font-display px-6">
-      {buying.name !== "" && <div className="flex justify-center items-center absolute top-0 left-0 min-h-screen w-full bg-gray-600 bg-opacity-50 z-20 px-4">
+      {buying.name !== "" && <div className="flex justify-center items-center fixed top-0 left-0 min-h-screen w-full bg-gray-600 bg-opacity-50 z-20 px-4">
           <div className="bg-white shadow rounded-lg">
               <div className="px-4 py-5 sm:p-6">
                   <div className="flex items-center justify-between">
